@@ -27,6 +27,14 @@ activity <- read.csv("activity.csv", colClasses = c("integer", "Date", "factor")
 activity$month <- as.numeric(format(activity$date, "%m"))
 noNAactivity <- na.omit(activity)
 rownames(noNAactivity) <- 1:nrow(noNAactivity)
+names(noNAactivity)
+```
+
+```
+## [1] "steps"    "date"     "interval" "month"
+```
+
+```r
 head(noNAactivity)
 ```
 
@@ -48,13 +56,6 @@ For this part of the assignment, you can ignore the missing values in the datase
 
 ```r
 library(ggplot2)
-```
-
-```
-## Need help? Try the ggplot2 mailing list: http://groups.google.com/group/ggplot2.
-```
-
-```r
 ggplot(noNAactivity, aes(date, steps)) + geom_bar(stat = "identity", colour = "red", fill = "red", width =0.6) + facet_grid(. ~ month, scales = "free")+ labs(title = "Histogram for Total No of Steps Taken Each Day", x = "Date", y = "Total no of steps")
 ```
 

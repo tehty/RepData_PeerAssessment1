@@ -25,6 +25,7 @@ activity <- read.csv("activity.csv", colClasses = c("integer", "Date", "factor")
 activity$month <- as.numeric(format(activity$date, "%m"))
 noNAactivity <- na.omit(activity)
 rownames(noNAactivity) <- 1:nrow(noNAactivity)
+names(noNAactivity)
 head(noNAactivity)
 ```
 
